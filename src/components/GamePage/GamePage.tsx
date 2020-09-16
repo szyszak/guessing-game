@@ -1,13 +1,16 @@
 import React from 'react';
-import { useSelector } from '../../store';
-import { randomAnswersSelector } from '../../store';
+import { Canvas } from './Canvas';
+import { useSelector, randomAnswersSelector } from '../../store';
 
 const GamePage = () => {
   const answers = useSelector(randomAnswersSelector);
 
-  console.table(answers);
-
-  return <h1>GAME PAGE</h1>;
+  return (
+    <>
+      <h1>GAME PAGE</h1>
+      <Canvas imgPath={answers[0].imgPath} step={0.2} />
+    </>
+  );
 };
 
 export { GamePage };

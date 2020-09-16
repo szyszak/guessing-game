@@ -1,9 +1,9 @@
-interface IAnswer {
+export interface IAnswer {
   answer: string;
   correct: boolean;
 }
 
-interface IRound {
+export interface IRound {
   imgPath: string;
   answers: IAnswer[];
 }

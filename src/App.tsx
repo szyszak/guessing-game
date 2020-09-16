@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { HomePage } from './components/HomePage';
 import { GamePage } from './components/GamePage';
 
-const App = (): JSX.Element => {
+const App: React.FC = () => {
   return (
     <Router>
       <main className="App">

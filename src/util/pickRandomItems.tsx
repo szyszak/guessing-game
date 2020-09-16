@@ -1,4 +1,4 @@
-export const pickRandomItems = (arr: any[], amount: number) => {
+export function pickRandomItems<T>(arr: T[], amount: number): T[] {
   const arrCopy = [...arr];
   const newArr = [];
   let length = arrCopy.length;
@@ -12,4 +12,4 @@ export const pickRandomItems = (arr: any[], amount: number) => {
   }
 
   return newArr;
-};
+}
