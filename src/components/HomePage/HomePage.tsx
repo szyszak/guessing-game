@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
 import { Button } from '../Shared';
 
 // STYLES
@@ -19,6 +20,8 @@ const P = styled.p`
 
 // COMPONENT
 const HomePage = (): JSX.Element => {
+  const history = useHistory();
+
   return (
     <Wrapper>
       <H1>Guessing Game</H1>
@@ -36,7 +39,9 @@ const HomePage = (): JSX.Element => {
         play.
       </P>
 
-      <Button className="start-button">Start</Button>
+      <Button onClick={() => history.push('/game')} className="start-button">
+        Start
+      </Button>
     </Wrapper>
   );
 };

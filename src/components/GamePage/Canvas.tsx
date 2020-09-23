@@ -1,10 +1,17 @@
 import React, { useRef, useLayoutEffect } from 'react';
+import styled from 'styled-components';
 
 // TYPES
 interface ICanvasProps {
   imgPath: string;
   step: number;
 }
+
+// STYLES
+const StyledCanvas = styled.canvas`
+  display: block;
+  margin: auto;
+`;
 
 // COMPONENT
 const Canvas: React.FC<ICanvasProps> = ({ imgPath, step }) => {
@@ -41,7 +48,7 @@ const Canvas: React.FC<ICanvasProps> = ({ imgPath, step }) => {
     };
   }, [imgPath, step]);
 
-  return <canvas ref={canvasRef} />;
+  return <StyledCanvas ref={canvasRef} />;
 };
 
 export { Canvas };
