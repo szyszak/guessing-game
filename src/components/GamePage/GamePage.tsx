@@ -20,7 +20,6 @@ const Wrapper = styled.div`
 // COMPONENT
 const GamePage: React.FC = () => {
   const answers = useSelector(randomAnswersSelector);
-  console.log(answers);
 
   const [currentStep, setCurrentStep] = useState(0);
   const [currentRound, setCurrentRound] = useState(0);
@@ -32,14 +31,14 @@ const GamePage: React.FC = () => {
       setTimeout(() => {
         setCurrentStep(currentStep + 1);
       }, INTERVAL);
-    } else {
+    } else if (currentRound < NUMBER_OF_ROUNDS - 1) {
       setCurrentRound(currentRound + 1);
       setCurrentStep(0);
     }
   }, [currentStep, currentRound]);
 
   useEffect(() => {
-    if (currentRound === 9) {
+    if (currentRound === NUMBER_OF_ROUNDS) {
       history.push('./');
     }
   });
@@ -48,7 +47,7 @@ const GamePage: React.FC = () => {
     <>
       <Canvas imgPath={answers[currentRound].imgPath} step={STEPS[currentStep]} />
 
-      <ProgressBar />
+      <ProgressBar step={STEPS[currentStep]} />
 
       <Wrapper>
         <Button className="answer-button">{answers[currentRound].answers[0].answer}</Button>

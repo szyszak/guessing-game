@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
-import { INTERVAL, NUMBER_OF_STEPS } from '../../config';
+import { INTERVAL, NUMBER_OF_STEPS, NUMBER_OF_ROUNDS } from '../../config';
+
+// TYPES
+interface IProgressBarProps {
+  step: number;
+}
 
 // STYLES
 const animation = keyframes`
   0% {
     transform: scaleX(0);
   }
+
   100% {
     transform: scaleX(1);
   }
@@ -20,17 +26,27 @@ const Outer = styled.div`
 `;
 
 const Inner = styled.div`
+  /* transform: scaleX(0); */
   height: 10px;
   background-color: #00e803;
   transform-origin: left;
   animation: ${animation};
   animation-duration: ${INTERVAL}ms;
   animation-timing-function: linear;
-  animation-iteration-count: ${NUMBER_OF_STEPS};
+  /* animation-play-state: paused; */
+  /* animation-fill-mode: none; */
+  /* animation-iteration-count: ${NUMBER_OF_STEPS * NUMBER_OF_ROUNDS}; */
 `;
 
 // COMPONENT
-const ProgressBar: React.FC = () => {
+const ProgressBar: React.FC<IProgressBarProps> = ({ step }) => {
+  const [currentStep, setCurrentStep] = useState(0);
+
+  useEffect(() => {
+    console.log(step);
+    setCurrentStep(step);
+  }, [step]);
+
   return (
     <Outer>
       <Inner />
