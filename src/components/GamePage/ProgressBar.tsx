@@ -26,30 +26,19 @@ const Outer = styled.div`
 `;
 
 const Inner = styled.div`
-  /* transform: scaleX(0); */
   height: 10px;
   background-color: #00e803;
   transform-origin: left;
   animation: ${animation};
   animation-duration: ${INTERVAL}ms;
   animation-timing-function: linear;
-  /* animation-play-state: paused; */
-  /* animation-fill-mode: none; */
-  /* animation-iteration-count: ${NUMBER_OF_STEPS * NUMBER_OF_ROUNDS}; */
 `;
 
 // COMPONENT
 const ProgressBar: React.FC<IProgressBarProps> = ({ step }) => {
-  const [currentStep, setCurrentStep] = useState(0);
-
-  useEffect(() => {
-    console.log(step);
-    setCurrentStep(step);
-  }, [step]);
-
   return (
     <Outer>
-      <Inner />
+      <Inner key={step} />
     </Outer>
   );
 };
