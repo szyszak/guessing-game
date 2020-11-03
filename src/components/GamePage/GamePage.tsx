@@ -43,6 +43,7 @@ const GamePage: React.FC = () => {
   // GAME LOGIC
   useEffect(() => {
     if (currentRound === NUMBER_OF_ROUNDS) {
+      console.log(score);
       return history.push('./');
     }
   }, [currentRound, history, score]);
