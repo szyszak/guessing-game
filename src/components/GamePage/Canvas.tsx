@@ -11,6 +11,8 @@ interface ICanvasProps {
 const StyledCanvas = styled.canvas`
   display: block;
   margin: auto;
+  margin-bottom: 10px;
+  width: 100%;
 `;
 
 // COMPONENT

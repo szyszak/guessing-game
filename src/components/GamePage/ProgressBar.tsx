@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import { INTERVAL, NUMBER_OF_STEPS, NUMBER_OF_ROUNDS } from '../../config';
+import { INTERVAL } from '../../config';
 
 // TYPES
 interface IProgressBarProps {

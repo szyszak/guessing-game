@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { createSelector } from 'reselect';
-import { answers } from './answers';
+import { answers } from './data/answers';
 import { pickRandomItems } from '../util';
 import { NUMBER_OF_ROUNDS } from '../config';
 import { IRootState } from './store';
