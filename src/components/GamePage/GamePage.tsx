@@ -8,8 +8,9 @@ import { Button } from '../Shared';
 import {
   useSelector,
   randomAnswersSelector,
+  rerollRandomItems,
   incrementScore,
-  // resetScore,
+  resetScore,
   scoreSelector,
 } from '../../store';
 import { calculateScore } from '../../util';
@@ -42,6 +43,11 @@ const GamePage: React.FC = () => {
   const dispatch = useDispatch();
 
   // GAME LOGIC
+  useEffect(() => {
+    dispatch(rerollRandomItems());
+    dispatch(resetScore());
+  }, [dispatch]);
+
   useEffect(() => {
     if (currentRound === NUMBER_OF_ROUNDS) {
       console.log(score);
