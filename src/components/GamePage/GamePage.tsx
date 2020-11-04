@@ -12,6 +12,7 @@ import {
   // resetScore,
   scoreSelector,
 } from '../../store';
+import { calculateScore } from '../../util';
 import { NUMBER_OF_ROUNDS, INTERVAL, STEPS, NUMBER_OF_STEPS } from '../../config';
 
 // STYLES
@@ -55,6 +56,9 @@ const GamePage: React.FC = () => {
       timer = setTimeout(() => {
         setCurrentStep(currentStep + 1);
       }, INTERVAL);
+    } else if (currentStep === NUMBER_OF_STEPS - 1) {
+      // don't start next round until player makes a choice
+      return;
     } else if (currentRound < NUMBER_OF_ROUNDS) {
       setCurrentRound(currentRound + 1);
       setCurrentStep(0);
@@ -65,7 +69,9 @@ const GamePage: React.FC = () => {
 
   const handleButtonClick = (isCorrectAnswer: boolean) => {
     if (isCorrectAnswer) {
-      dispatch(incrementScore(10));
+      const calculatedScore = calculateScore(currentStep);
+
+      dispatch(incrementScore(calculatedScore));
     }
 
     setCurrentStep(0);
