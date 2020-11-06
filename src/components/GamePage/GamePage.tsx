@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { Canvas } from './Canvas';
 import { ProgressBar } from './ProgressBar';
-import { Button } from '../Shared';
+import { Button } from '../shared';
 import {
   useSelector,
   randomAnswersSelector,

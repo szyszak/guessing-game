@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
-import { Button } from '../Shared';
+import { Button } from '../shared';
 
 // STYLES
 const Wrapper = styled.div`
@@ -30,13 +30,13 @@ const HomePage = (): JSX.Element => {
       <H2>How to play:</H2>
 
       <P>
-        You'll see pixelated pictures and four buttons with answers. Pictures will become less
+        You'll see pixelated pictures and four buttons containing answers. Pictures will become less
         pixelated as time goes by. Your task is to indentify the picture and choose the right answer
         as soon as you can.
       </P>
 
       <P>
-        Your score will depend on how fast you are. Press the start button when you're ready to
+        Your score will depend on how fast you are. Press the START button when you're ready to
         play.
       </P>
 

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 import { useSelector, scoreSelector } from '../../store';
-import { Button } from '../Shared';
+import { Button } from '../shared';
 
 // STYLES
 const Wrapper = styled.div`
