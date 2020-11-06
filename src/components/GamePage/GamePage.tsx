@@ -19,6 +19,7 @@ import { NUMBER_OF_ROUNDS, INTERVAL, STEPS, NUMBER_OF_STEPS } from '../../config
 // STYLES
 const Wrapper = styled.div`
   margin: auto;
+  padding-top: 60px;
   width: min(100%, 600px);
 `;
 
@@ -50,8 +51,7 @@ const GamePage: React.FC = () => {
 
   useEffect(() => {
     if (currentRound === NUMBER_OF_ROUNDS) {
-      console.log(score);
-      return history.push('./');
+      return history.push('./score');
     }
   }, [currentRound, history, score]);
 

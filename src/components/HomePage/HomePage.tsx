@@ -8,6 +8,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 120px;
 `;
 
 const H1 = styled.h1``;
