@@ -1,3 +1,3 @@
 # Live version:
 
-[https://guessing-game.krzysztofszyszko.pl//](https://guessing-game.krzysztofszyszko.pl/)
+[https://szyszak.github.io/pokedex/](https://szyszak.github.io/pokedex/)
