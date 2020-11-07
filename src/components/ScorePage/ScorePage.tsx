@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useHistory } from 'react-router-dom';
 import { useSelector, scoreSelector } from '../../store';
-import { Button } from '../shared';
+import { Link } from '../shared';
 
 // STYLES
 const Wrapper = styled.div`
@@ -11,7 +10,6 @@ const Wrapper = styled.div`
 
 // COMPONENT
 const ScorePage = () => {
-  const history = useHistory();
   const score = useSelector(scoreSelector);
 
   return (
@@ -19,9 +17,7 @@ const ScorePage = () => {
       <h1>GAME OVER</h1>
       <p>Your score is: {score}.</p>
 
-      <Button onClick={() => history.push('/')} className="start-button">
-        go back
-      </Button>
+      <Link to="/">go back</Link>
     </Wrapper>
   );
 };

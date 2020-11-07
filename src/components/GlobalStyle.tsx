@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    padding: 0 16px;
     text-align: center;
   }
 
