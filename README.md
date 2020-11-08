@@ -1,3 +1,7 @@
-# Live version:
+# Guessing Game
 
-[https://szyszak.github.io/pokedex/](https://szyszak.github.io/pokedex/)
+Built with React, Redux Toolkit and React Router.
+
+## Live version:
+
+[https://guessing-game.krzysztofszyszko.pl/](https://guessing-game.krzysztofszyszko.pl/)
