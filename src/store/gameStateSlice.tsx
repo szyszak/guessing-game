@@ -21,3 +21,5 @@ const gameStateSlice = createSlice({
 export { gameStateSlice, scoreSelector };
 
 export const { incrementScore, resetScore } = gameStateSlice.actions;
+
+export const { reducer } = gameStateSlice;

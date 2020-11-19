@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Button = styled.button`
+const Button = styled.button.attrs(() => ({ 'data-testid': 'button' }))`
   max-width: 150px;
   width: 100%;
   padding: 12px 0;

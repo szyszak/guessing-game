@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { createSelector } from 'reselect';
 import { answers } from './data/answers';
-import { pickRandomItems } from '../util';
+import { pickRandomItems } from '../util/pickRandomItems';
 import { NUMBER_OF_ROUNDS } from '../config';
 import { IRootState } from './store';
 
@@ -14,10 +14,10 @@ const randomAnswersSelector = createSelector(answersSelector, (items) =>
 const answersSlice = createSlice({
   name: 'answers',
   initialState: {
-    answers: answers,
+    answers,
   },
   reducers: {
-    rerollRandomItems: (state) => {
+    rerollRandomAnswers: (state) => {
       state.answers = pickRandomItems(answers, NUMBER_OF_ROUNDS);
     },
   },
@@ -25,4 +25,6 @@ const answersSlice = createSlice({
 
 export { answersSlice, randomAnswersSelector };
 
-export const { rerollRandomItems } = answersSlice.actions;
+export const { rerollRandomAnswers } = answersSlice.actions;
+
+export const { reducer } = answersSlice;

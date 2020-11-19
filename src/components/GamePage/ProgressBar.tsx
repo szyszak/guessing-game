@@ -37,7 +37,7 @@ const Inner = styled.div`
 // COMPONENT
 const ProgressBar: React.FC<IProgressBarProps> = ({ step }) => {
   return (
-    <Outer>
+    <Outer data-testid="progress-bar">
       <Inner key={step} />
     </Outer>
   );

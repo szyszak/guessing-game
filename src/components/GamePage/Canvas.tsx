@@ -50,7 +50,7 @@ const Canvas: React.FC<ICanvasProps> = ({ imgPath, step }) => {
     };
   }, [imgPath, step]);
 
-  return <StyledCanvas ref={canvasRef} />;
+  return <StyledCanvas ref={canvasRef} data-testid="canvas" />;
 };
 
 export { Canvas };

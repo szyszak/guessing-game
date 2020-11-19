@@ -8,7 +8,7 @@ import { Button } from '../shared';
 import {
   useSelector,
   randomAnswersSelector,
-  rerollRandomItems,
+  rerollRandomAnswers,
   incrementScore,
   resetScore,
   scoreSelector,
@@ -45,7 +45,7 @@ const GamePage: React.FC = () => {
 
   // GAME LOGIC
   useEffect(() => {
-    dispatch(rerollRandomItems());
+    dispatch(rerollRandomAnswers());
     dispatch(resetScore());
   }, [dispatch]);
 
