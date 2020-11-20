@@ -1,9 +1,7 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import { answersSlice } from './answersSlice';
 import { gameStateSlice } from './gameStateSlice';
 
 const rootReducer = {
-  answers: answersSlice.reducer,
   gameState: gameStateSlice.reducer,
 };
 

@@ -5,15 +5,8 @@ import { useDispatch } from 'react-redux';
 import { Canvas } from './Canvas';
 import { ProgressBar } from './ProgressBar';
 import { Button } from '../shared';
-import {
-  useSelector,
-  randomAnswersSelector,
-  rerollRandomAnswers,
-  incrementScore,
-  resetScore,
-  scoreSelector,
-} from '../../store';
-import { calculateScore } from '../../util';
+import { incrementScore, resetScore, answers } from '../../store';
+import { calculateScore, pickRandomItems } from '../../util';
 import { NUMBER_OF_ROUNDS, INTERVAL, STEPS, NUMBER_OF_STEPS } from '../../config';
 
 // STYLES
@@ -34,9 +27,7 @@ const ButtonWrapper = styled.div`
 
 // COMPONENT
 const GamePage: React.FC = () => {
-  const answers = useSelector(randomAnswersSelector);
-  const score = useSelector(scoreSelector);
-
+  const [randomAnswers] = useState(pickRandomItems(answers, NUMBER_OF_ROUNDS));
   const [currentStep, setCurrentStep] = useState(0);
   const [currentRound, setCurrentRound] = useState(0);
 
@@ -45,7 +36,6 @@ const GamePage: React.FC = () => {
 
   // GAME LOGIC
   useEffect(() => {
-    dispatch(rerollRandomAnswers());
     dispatch(resetScore());
   }, [dispatch]);
 
@@ -53,7 +43,7 @@ const GamePage: React.FC = () => {
     if (currentRound === NUMBER_OF_ROUNDS) {
       return history.push('./score');
     }
-  }, [currentRound, history, score]);
+  }, [currentRound, history]);
 
   useEffect(() => {
     let timer: number;
@@ -71,7 +61,7 @@ const GamePage: React.FC = () => {
     }
 
     return () => clearTimeout(timer);
-  }, [currentStep, currentRound, history, score]);
+  }, [currentStep, currentRound]);
 
   const handleButtonClick = (isCorrectAnswer: boolean) => {
     if (isCorrectAnswer) {
@@ -91,37 +81,37 @@ const GamePage: React.FC = () => {
 
   return (
     <Wrapper>
-      <Canvas imgPath={answers[currentRound].imgPath} step={STEPS[currentStep]} />
+      <Canvas imgPath={randomAnswers[currentRound].imgPath} step={STEPS[currentStep]} />
 
       <ProgressBar step={STEPS[currentStep]} />
 
       <ButtonWrapper>
         <Button
           className="answer-button"
-          onClick={() => handleButtonClick(answers[currentRound].answers[0].correct)}
+          onClick={() => handleButtonClick(randomAnswers[currentRound].answers[0].correct)}
         >
-          {answers[currentRound].answers[0].answer}
+          {randomAnswers[currentRound].answers[0].answer}
         </Button>
 
         <Button
           className="answer-button"
-          onClick={() => handleButtonClick(answers[currentRound].answers[1].correct)}
+          onClick={() => handleButtonClick(randomAnswers[currentRound].answers[1].correct)}
         >
-          {answers[currentRound].answers[1].answer}
+          {randomAnswers[currentRound].answers[1].answer}
         </Button>
 
         <Button
           className="answer-button"
-          onClick={() => handleButtonClick(answers[currentRound].answers[2].correct)}
+          onClick={() => handleButtonClick(randomAnswers[currentRound].answers[2].correct)}
         >
-          {answers[currentRound].answers[2].answer}
+          {randomAnswers[currentRound].answers[2].answer}
         </Button>
 
         <Button
           className="answer-button"
-          onClick={() => handleButtonClick(answers[currentRound].answers[3].correct)}
+          onClick={() => handleButtonClick(randomAnswers[currentRound].answers[3].correct)}
         >
-          {answers[currentRound].answers[3].answer}
+          {randomAnswers[currentRound].answers[3].answer}
         </Button>
       </ButtonWrapper>
     </Wrapper>
