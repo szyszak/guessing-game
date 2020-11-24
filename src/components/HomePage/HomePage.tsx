@@ -37,7 +37,9 @@ const HomePage = (): JSX.Element => {
         play.
       </P>
 
-      <Link to="/game">Start</Link>
+      <Link data-testid="start-button" to="/game">
+        Start
+      </Link>
     </Wrapper>
   );
 };

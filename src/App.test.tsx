@@ -1,19 +1,26 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-import { Provider } from 'react-redux';
-import { store } from './store/store';
+import fireEvent from '@testing-library/user-event';
+import { renderWithStore } from './util/renderWithStore';
 import App from './App';
 
 describe('<App />', () => {
-  it('renders without crashing', () => {
-    const { getByText } = render(
-      <Provider store={store}>
-        <App />
-      </Provider>,
-    );
+  it('renders the home page', () => {
+    const { getByText } = renderWithStore(<App />);
 
-    const textElem = getByText(/guessing game/i);
+    const elem = getByText(/guessing game/i);
 
-    expect(textElem).toBeInTheDocument();
+    expect(elem).toBeInTheDocument();
+  });
+
+  it('navigates to game page', () => {
+    const { getByTestId } = renderWithStore(<App />);
+
+    const startButton = getByTestId('start-button');
+
+    fireEvent.click(startButton);
+
+    const canvas = getByTestId('canvas');
+
+    expect(canvas).toBeInTheDocument();
   });
 });
